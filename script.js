@@ -1,26 +1,26 @@
 
 
 var songs = [
-             "songs/Aghori.mp3", 
+            /* "songs/Aghori.mp3", 
              "songs/Alone.mp3", 
              "songs/Alto's Odyssey - Zen Mode Soundtrack.mp3", 
-             "songs/Angst.mp3", 
+             "songs/Angst.mp3", */
              "songs/Animals.mp3", 
              "songs/Area.mp3", 
-             "songs/Awaken.mp3", 
-             "songs/Bella ciao.mp3", 
+            /* "songs/Awaken.mp3", 
+             "songs/Bella ciao.mp3", */
              "songs/Boom Shankar.mp3", 
-             "songs/Calavera.mp3", 
+            /* "songs/Calavera.mp3", 
              "songs/Choices.mp3", 
-             "songs/Choli Ke Peeche (Remix).mp3", 
+             "songs/Choli Ke Peeche (Remix).mp3", */
              "songs/Deep Down Inside.mp3", 
-             "songs/Easy Go.mp3", 
+             "songs/Easy Go.mp3"/*, 
              "songs/Eternal Youth.mp3", 
              "songs/Feel Alive.mp3", 
              "songs/Forbidden Voices.mp3", 
              "songs/Fuel To the Fire.mp3", 
              "songs/Get Low.mp3", 
-             "songs/Hex.mp3"
+             "songs/Hex.mp3"*/
              ];
 
 
@@ -220,7 +220,7 @@ var songNameArray = [
                      songName02,
                      songName03,
                      songName04,
-                     songName05,
+                    /* songName05,
                      songName06,
                      songName07,
                      songName08,
@@ -235,7 +235,7 @@ var songNameArray = [
                      songName17,
                      songName18,
                      songName19,
-                     songName20,
+                     songName20,*/
                      ];
 
 
