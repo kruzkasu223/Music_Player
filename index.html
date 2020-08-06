@@ -3,60 +3,86 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
-
-    <script defer src="script.js"></script>
-
+    
     <title>Music Player</title>
   </head>
   <body>
-
-    <div class="song_name song_01">Huzurevala</div>
-    <div class="song_name song_02">Sparkle</div>
-    <div class="song_name song_03">Grand Escape</div>
-    <div class="song_name song_04">He Is The Same</div>
-    <div class="song_name song_05">Good Things Fall Apart</div>
-    <div class="song_name song_06">All Time Low</div>
-    <div class="song_name song_07">Overwhelming</div>
-    <div class="song_name song_08">Meant To Be</div>
-    <div class="song_name song_09">Eastside</div>
-    <div class="song_name song_10">Just The Way You Are</div>
-    <div class="song_name song_11">Melody</div>
-    <div class="song_name song_12">The Way I Am</div>
-    <div class="song_name song_13">Closer</div>
-    <div class="song_name song_14">Counting Star</div>
-    <div class="song_name song_15">Deathbad</div>
-    <div class="song_name song_16">When I Grow Up</div>
-    <div class="song_name song_17">Perfect</div>
-    <div class="song_name song_18">Shape Of You</div>
-    <div class="song_name song_19">Unforgettable</div>
-    <div class="song_name song_20">Believer</div>
-    <div class="song_name song_21">Humble</div>
-    <div class="song_name song_22">Can We Kiss Forever</div>
-    <div class="song_name song_23">Shallow</div>
-    <div class="song_name song_24">I Like Me Better</div>
-    <div class="song_name song_25">Earth</div>
-    <div class="song_name song_26">Gang Related</div>
-    <div class="song_name song_27">The Night We Met</div>
-    <div class="song_name song_28">Girls Like You</div>
-    <div class="song_name song_29">Scared To Be Lonely</div>
-    <div class="song_name song_30">We Will Rock You</div>
-    <div class="song_name song_31">Sunflower</div>
-    <div class="song_name song_32">Psycho Pt.2</div>
-    <div class="song_name song_33">Hell Of A Night</div>
-    <div class="song_name song_34">Trampoline</div>
-    <div class="song_name song_35">Waka Waka</div>
-    <div class="song_name song_36">Where Are You Now</div>
-    <div class="song_name song_37">Cradles</div>
-    <div class="song_name song_38">Something Just Like This</div>
-    <div class="song_name song_39">Kills You Slowly</div>
-    <div class="song_name song_40">Who Do You love</div>
-    <div class="song_name song_41">See You Again</div>
-    <div class="song_name song_42">Stay</div>
-    <div class="song_name song_43">The Middle</div>
-
+    
+    <header>
+        <nav class="">
+            <a class="home_btn" href="https://novasupply.co">HOME</a>
+        </nav>
+    </header>
+    
+    <div class="main_div">
+        
+        <div class="song_name song_01">Aghori</div>
+        <div class="song_name song_02">Alone</div>
+        <div class="song_name song_03">Alto's Odyssey - Zen Mode Soundtrack</div>
+        <div class="song_name song_04">Angst</div>
+        <div class="song_name song_05">Animals</div>
+        <div class="song_name song_06">Area</div>
+        <div class="song_name song_07">Awaken</div>
+        <div class="song_name song_08">Bella Ciao</div>
+        <div class="song_name song_09">Boom Shankar</div>
+        <div class="song_name song_10">Calavera</div>
+        <div class="song_name song_11">Choices</div>
+        <div class="song_name song_12">Choli Ke Peeche (Remix)</div>
+        <div class="song_name song_13">Deep Down Inside</div>
+        <div class="song_name song_14">Easy Go</div>
+        <div class="song_name song_15">Eternal Youth</div>
+        <div class="song_name song_16">Feel Alive</div>
+        <div class="song_name song_17">Forbidden Voices</div>
+        <div class="song_name song_18">Fuel To The Fire</div>
+        <div class="song_name song_19">Get Low</div>
+        <div class="song_name song_20">Hex</div>
+    
+        <div class="controls_div">
+            <div class="current_song_name"></div>
+            
+            <div class="controls">
+                <div class="control_btns">
+                    
+                    <button class="control_btn prev_btn" onclick="prev()">
+                        <img class="prev" src="icons/prev.png" alt="previous" />
+                    </button>
+                    
+                    <button class="control_btn play_pause_btn" onclick="playOrPause()">
+                        <img class="" src="icons/play.png" alt="play-pause" />
+                    </button>
+                    
+                    <button class="control_btn next_btn" onclick="next()">
+                        <img class="next" src="icons/next.png" alt="next" />
+                    </button>
+                    
+                </div>
+                
+                <div class="seek_bar">
+                    <div class="fill">
+                        
+                    </div>
+                    <div class="handle">
+                        
+                    </div>
+                </div>
+                
+                <div class="song_time">
+                    <div class="current_time">00:00</div>
+                    <div class="total_time">00:00</div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    <script src="script.js"></script>
+    
+    
   </body>
 </html>

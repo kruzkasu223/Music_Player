@@ -1,15 +1,17 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  position: relative;
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  width: 100%;
-  height: 80vh;
-  animation: bgChanger 120s infinite;
+    position: relative;
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+    color: white;
+    animation: bgChanger 120s infinite;
 }
 
 @keyframes bgChanger{
@@ -48,363 +50,204 @@ body {
   }
 }
 
+header{
+    width: 100%;
+    padding: 1rem;
+    text-align: right;
+}
 
+.home_btn{
+    text-decoration: none;
+    color: #eee;
+    padding: .5rem 1rem;
+    border-radius: .25rem;
+    animation: bgChanger 120s infinite;
+    filter: brightness(90%);
+    transition: .3s;
+    text-shadow: 2px 2px 3px rgba(0,0,0,.5);
+}
+
+.home_btn:hover,
+.home_btn:focus{
+    box-shadow: inset 3px 3px 2px rgba(0,0,0,.1),
+                inset -3px -3px 2px rgba(255,255,255,.15);
+    color: #fff;
+    text-shadow: none;
+}
+
+.main_div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    min-height: 400px;
+    padding: 0;
+    border-radius: .5rem;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.2),
+               -5px -5px 5px rgba(255,255,255,.2);
+    overflow-y: scroll;
+    z-index: 10;
+}
 
 .song_name{
-  position: absolute;
-  font-size: 1rem;
-  cursor: pointer;
+    font-size: 1.125rem;
+    padding: .5rem;
+    margin: .5rem;
+    border-radius: .5rem;
+    animation: bgChanger 120s infinite;
+    filter: brightness(95%);
+    transition: .3s;
+    cursor: pointer;
+    text-shadow: 2px 2px 3px rgba(0,0,0,.5);
+}
+
+.song_name:hover,
+.song_name:focus{
+    box-shadow: inset 3px 3px 2px rgba(0,0,0,.1),
+                inset -3px -3px 2px rgba(255,255,255,.15);
+    text-shadow: none;
+}
+
+.controls_div{
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /*height: 25%;*/
+    /*max-height: 200px;*/
+    /*min-height: 150px;*/
+    padding: 0 .5rem;
+    border-radius: .5rem 0 0 .5rem;
+    animation: bgChanger 120s infinite;
+    filter: brightness(90%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.current_song_name{
+    margin: 1rem 0 0 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.controls{
+    width: 100%;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.control_btns{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.control_btn{
+    border-radius: 50%;
+    border: none;
+    animation: bgChanger 120s infinite;
+    filter: brightness(115%);
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control_btn:hover,
+.control_btn:focus{
+    box-shadow: inset 3px 3px 2px rgba(0,0,0,.2),
+
+                inset -3px -3px 2px rgba(255,255,255,.15);
+}
+
+.control_btn > img{
+    width: 35px;
+    height: 35px;
+    padding: .5rem;
+}
+
+.play_pause_btn img{
+    width: 45px;
+    height: 45px;
+    padding: .5rem;
+    
+}
+
+.seek_bar{
+    width: 80%;
+    height: .35rem;
+    margin: 1rem 0 0 0;
+    border-radius: .25rem;
+    animation: bgChanger 120s infinite;
+    filter: brightness(110%);
+    display: flex;
+    /*cursor: pointer;*/
+}
+
+.fill{
+    width: 0;
+    height: 100%;
+    border-radius: .25rem;
+    animation: bgChanger 120s infinite;
+    filter: brightness(70%);
+}
+
+.handle{
+    width: .35rem;
+    height: .35rem;
+    border-radius: 50%;
+    color: black;
+    animation: bgChanger 120s infinite;
+    filter: brightness(50%);
+    transform: scale(2.5);
+}
+
+.song_time{
+    width: 80%;
+    margin: .25rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .80rem;
+    
 }
 
 
 
-.song_01{
-  top: 15%;
-  left: 80%;
+.main_div::-webkit-scrollbar{
+    width: .5rem;
 }
-.song_02{
-  top: 40%;
-  left: 20%;
+.main_div::-webkit-scrollbar-track {
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.2),
+                inset -2px -2px 4px rgba(255,255,255,.2);
+    border-radius: 0 .5rem .5rem 0;
 }
-.song_03{
-  top: 80%;
-  left: 80%;
+.main_div::-webkit-scrollbar-thumb {
+    border-radius: 0 .5rem .5rem 0;
+    box-shadow: inset 2px 2px 3px rgba(255,255,255,.4),
+                inset -2px -2px 3px rgba(0,0,0,0.3);
 }
-.song_04{
-  top: 58%;
-  left: 34%;
+
+@media (min-width: 700px){
+    .main_div{
+        width: 400px;
+    }
 }
-.song_05{
-  top: 62%;
-  left: 5%;
-}
-.song_06{
-  top: 23%;
-  left: 76%;
-}
-.song_07{
-  top: 34%;
-  left: 78%;
-}
-.song_08{
-  top: 19%;
-  left: 56%;
-}
-.song_09{
-  top: 60%;
-  left: 82%;
-}
-.song_10{
-  top: 42%;
-  left: 65%;
+
+@media (min-width: 1000px){
+    .main_div{
+        width: 500px;
+    }
 }
 
 
-
-.song_11{
-  top: 48%;
-  left: 10%;
-}
-.song_12{
-  top: 83%;
-  left: 23%;
-}
-.song_13{
-  top: 51%;
-  left: 78%;
-}
-.song_14{
-  top: 30%;
-  left: 80%;
-}
-.song_15{
-  top: 65%;
-  left: 44%;
-}
-.song_16{
-  top: 89%;
-  left: 65%;
-}
-.song_17{
-  top: 84%;
-  left: 8%;
-}
-.song_18{
-  top: 45%;
-  left: 44%;
-}
-.song_19{
-  top: 32%;
-  left: 26%;
-}
-.song_20{
-  top: 5%;
-  left: 45%;
-}
-
-
-
-.song_21{
-  top: 10%;
-  left: 7%;
-}
-.song_22{
-  top: 13%;
-  left: 20%;
-}
-.song_23{
-  top: 20%;
-  left: 20%;
-}
-.song_24{
-  top: 70%;
-  left: 70%;
-}
-.song_25{
-  top: 85%;
-  left: 55%;
-}
-.song_26{
-  top: 60%;
-  left: 60%;
-}
-.song_27{
-  top: 50%;
-  left: 20%;
-}
-.song_28{
-  top: 30%;
-  left: 50%;
-}
-.song_29{
-  top: 90%;
-  left: 10%;
-}
-.song_30{
-  top: 53%;
-  left: 50%;
-}
-
-
-
-.song_31{
-  top: 10%;
-  left: 50%;
-}
-.song_32{
-  top: 5%;
-  left: 10%;
-}
-.song_33{
-  top: 95%;
-  left: 35%;
-}
-.song_34{
-  top: 37%;
-  left: 57%;
-}
-.song_35{
-  top: 23%;
-  left: 35%;
-}
-.song_36{
-  top: 73%;
-  left: 50%;
-}
-.song_37{
-  top: 75%;
-  left: 10%;
-}
-.song_38{
-  top: 70%;
-  left: 10%;
-}
-.song_39{
-  top: 35%;
-  left: 10%;
-}
-.song_40{
-  top: 25%;
-  left: 10%;
-}
-
-
-
-.song_41{
-  top:5%;
-  left: 80%;
-}
-.song_42{
-  top:10%;
-  left: 70%;
-}
-.song_43{
-  top: 80%;
-  left: 60%;
-}
-
-
-
-@keyframes RoamingText1{
-  0%{
-    transform: translate(0, 0);
-  }
-  25%{
-    transform: translate(10%, 10%);
-  }
-  50%{
-    transform: translate(50%, 30%);
-  }
-  75%{
-    transform: translate(-20%, 70%);
-  }
-  100%{
-    transform: translate(0, 0);
-  }
-}
-
-
-@keyframes RoamingText2{
-  0%{
-    transform: translate(0, 0);
-  }
-  25%{
-    transform: translate(30%, 20%);
-  }
-  50%{
-    transform: translate(70%, -50%);
-  }
-  75%{
-    transform: translate(40%, 30%);
-  }
-  100%{
-    transform: translate(0, 0);
-  }
-}
-
-
-@keyframes RoamingText3{
-  0%{
-    transform: translate(0, 0);
-  }
-  25%{
-    transform: translate(10%, 10%);
-  }
-  50%{
-    transform: translate(40%, 60%);
-  }
-  75%{
-    transform: translate(50%, 50%);
-  }
-  100%{
-    transform: translate(0, 0);
-  }
-}
-
-
-@keyframes RoamingText4{
-  0%{
-    transform: translate(0, 0);
-  }
-  25%{
-    transform: translate(-30%, -30%);
-  }
-  50%{
-    transform: translate(-30%, 30%);
-  }
-  75%{
-    transform: translate(20%, -30%);
-  }
-  100%{
-    transform: translate(0, 0);
-  }
-}
-
-
-@keyframes RoamingText5{
-  0%{
-    transform: translate(0, 0);
-  }
-  25%{
-    transform: translate(5%, -5%);
-  }
-  50%{
-    transform: translate(25%, 30%);
-  }
-  75%{
-    transform: translate(-20%, 10%);
-  }
-  100%{
-    transform: translate(0, 0);
-  }
-}
-
-
-
-.song_01,
-.song_02,
-.song_03,
-.song_04,
-.song_05,
-.song_06,
-.song_07,
-.song_08,
-.song_09{
-  font-size: 1.3rem;
-  animation: RoamingText1 60s linear infinite;
-}
-
-
-.song_10,
-.song_11,
-.song_12,
-.song_13,
-.song_14,
-.song_15,
-.song_16,
-.song_17,
-.song_18,
-.song_19{
-  font-size: .85rem;
-  animation: RoamingText2 60s 5s linear infinite;
-}
-
-
-.song_20,
-.song_21,
-.song_22,
-.song_23,
-.song_24,
-.song_25,
-.song_26,
-.song_27,
-.song_28,
-.song_29{
-  font-weight: 700;
-  animation: RoamingText3 60s 10s linear infinite;
-}
-
-
-.song_30,
-.song_31,
-.song_32,
-.song_33,
-.song_34,
-.song_35,
-.song_36,
-.song_37,
-.song_38,
-.song_39{
-  font-weight: 300;
-  font-size: 1.2rem;
-  animation: RoamingText4 60s linear infinite;
-}
-
-
-.song_40,
-.song_41,
-.song_42,
-.song_43{
-  font-size: 1.4rem;
-  animation: RoamingText5 60s linear infinite;
-}

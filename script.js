@@ -1,239 +1,272 @@
 
+
+var songs = [
+             "songs/Aghori.mp3", 
+             "songs/Alone.mp3", 
+             "songs/Alto's Odyssey - Zen Mode Soundtrack.mp3", 
+             "songs/Angst.mp3", 
+             "songs/Animals.mp3", 
+             "songs/Area.mp3", 
+             "songs/Awaken.mp3", 
+             "songs/Bella ciao.mp3", 
+             "songs/Boom Shankar.mp3", 
+             "songs/Calavera.mp3", 
+             "songs/Choices.mp3", 
+             "songs/Choli Ke Peeche (Remix).mp3", 
+             "songs/Deep Down Inside.mp3", 
+             "songs/Easy Go.mp3", 
+             "songs/Eternal Youth.mp3", 
+             "songs/Feel Alive.mp3", 
+             "songs/Forbidden Voices.mp3", 
+             "songs/Fuel To the Fire.mp3", 
+             "songs/Get Low.mp3", 
+             "songs/Hex.mp3"
+             ];
+
+
+var songName = document.querySelector(".current_song_name");
+var fillBar = document.querySelector(".fill");
+var seekBar = document.querySelector(".seek_bar");
+
+var current_Time = document.querySelector(".current_time");
+var total_Time = document.querySelector(".total_time");
+
+var song = new Audio();
+var CurrentSong = 0;
+
+var playPause = document.querySelector(".play_pause_btn");
+var playPauseImg = document.querySelector(".play_pause_btn img");
+
+
+
+/* ********
+~~~~~~~~~~
+Song Play or Pause
+~~~~~~~~~~
+******** */
+
+
+window.onload = playSong;
+
+
+
+function playSong(){
+    
+    song.src = songs[CurrentSong];
+    
+    songsTitle = songs[CurrentSong].substring(6, songs[CurrentSong].indexOf('.'));
+    
+    songName.textContent = (songsTitle);
+    
+    song.play();
+    
+}
+
+
+function playOrPause(){
+    
+    if(song.paused){
+        song.play();
+        playPauseImg.setAttribute("src", "icons/pause.png");
+    }
+    else{
+        song.pause();
+        playPauseImg.setAttribute("src", "icons/play.png");
+    }
+    
+}
+
+
+
+/* ********
+~~~~~~~~~~
+Seek Bar and Timing updating
+~~~~~~~~~~
+******** */
+
+song.addEventListener("timeupdate", () => {
+    
+    var position = song.currentTime / song.duration;
+    
+    
+    fillBar.style.width = position * 100 + "%";
+    
+    convertTime(Math.round(song.currentTime));
+    totalTimeFunc(Math.round(song.duration));
+    
+    if(song.ended){
+        next();
+    }
+});
+
+
+function convertTime(seconds){
+    
+    var min = Math.floor(seconds / 60);
+    var sec = seconds % 60;
+    
+    min = (min < 10) ? "0" + min : min;
+    sec = (sec < 10) ? "0" + sec : sec;
+    
+    current_Time.textContent = min + ":" + sec;
+    
+}
+
+
+function totalTimeFunc(seconds){
+    
+    var min = Math.floor(seconds / 60);
+    var sec = seconds % 60;
+    
+    min = (min < 10) ? "0" + min : min;
+    sec = (sec < 10) ? "0" + sec : sec;
+    
+    total_Time.textContent = min + ":" + sec;
+    
+}
+
+
+/* ********
+~~~~~~~~~~
+Go to Next and Previous Song Buttons
+~~~~~~~~~~
+******** */
+
+function pausePng(){
+    playPauseImg.setAttribute("src", "icons/pause.png");
+}
+
+
+function next(){
+    
+    CurrentSong++;
+    if (CurrentSong > songs.length-1){
+        CurrentSong = 0;
+    }
+    playSong();
+    pausePng();
+    
+}
+
+
+function prev(){
+    
+    CurrentSong--;
+    if (CurrentSong < 0){
+        CurrentSong = songs.length-1;
+    }
+    playSong();
+    pausePng();
+    
+}
+
+
+
+/* ********
+~~~~~~~~~~
+Tap on Seek Bar to Jump to that time
+~~~~~~~~~~
+******** */
+
+
+seekBar.addEventListener("click", seek);
+
+function seek(e){
+    
+    const seekTime = (e.offsetX / seekBar.offsetWidth) * song.duration;
+    song.currentTime = seekTime;
+    
+    console.log(seekTime);
+    console.log(song.currentTime);
+    
+}
+
+
+
+/* ********
+~~~~~~~~~~
+Click on Song Name to Play
+~~~~~~~~~~
+******** */
+
 const songName01 = document.querySelector(".song_01");
-/* const songName02 = document.querySelector(".song_02");
+const songName02 = document.querySelector(".song_02");
 const songName03 = document.querySelector(".song_03");
 const songName04 = document.querySelector(".song_04");
 const songName05 = document.querySelector(".song_05");
+
 const songName06 = document.querySelector(".song_06");
 const songName07 = document.querySelector(".song_07");
-const songName08 = document.querySelector(".song_08"); */
+const songName08 = document.querySelector(".song_08");
 const songName09 = document.querySelector(".song_09");
-/* const songName10 = document.querySelector(".song_10");
+const songName10 = document.querySelector(".song_10");
+
 
 const songName11 = document.querySelector(".song_11");
 const songName12 = document.querySelector(".song_12");
 const songName13 = document.querySelector(".song_13");
 const songName14 = document.querySelector(".song_14");
 const songName15 = document.querySelector(".song_15");
+
 const songName16 = document.querySelector(".song_16");
 const songName17 = document.querySelector(".song_17");
 const songName18 = document.querySelector(".song_18");
 const songName19 = document.querySelector(".song_19");
 const songName20 = document.querySelector(".song_20");
 
-const songName21 = document.querySelector(".song_21");
-const songName22 = document.querySelector(".song_22");
-const songName23 = document.querySelector(".song_23");
-const songName24 = document.querySelector(".song_24");
-const songName25 = document.querySelector(".song_25");
-const songName26 = document.querySelector(".song_26");
-const songName27 = document.querySelector(".song_27");
-const songName28 = document.querySelector(".song_28");
-const songName29 = document.querySelector(".song_29");
-const songName30 = document.querySelector(".song_30");
 
-const songName31 = document.querySelector(".song_31");
-const songName32 = document.querySelector(".song_32");
-const songName33 = document.querySelector(".song_33");
-const songName34 = document.querySelector(".song_34");
-const songName35 = document.querySelector(".song_35");
-const songName36 = document.querySelector(".song_36");
-const songName37 = document.querySelector(".song_37");
-const songName38 = document.querySelector(".song_38");
-const songName39 = document.querySelector(".song_39");
-const songName40 = document.querySelector(".song_40");
-
-const songName41 = document.querySelector(".song_41");
-const songName42 = document.querySelector(".song_42");
-const songName43 = document.querySelector(".song_43");
- */
-
-var song01 = new Audio("song_01.mp3");
-/* var song02 = new Audio("song_02.mp3");
-var song03 = new Audio("song_03.mp3");
-var song04 = new Audio("song_04.mp3");
-var song05 = new Audio("song_05.mp3");
-var song06 = new Audio("song_06.mp3");
-var song07 = new Audio("song_07.mp3");
-var song08 = new Audio("song_08.mp3"); */
-var song09 = new Audio("song_09.flac");
-/* var song10 = new Audio("song_10.mp3");
-
-var song11 = new Audio("song_11.mp3");
-var song12 = new Audio("song_12.mp3");
-var song13 = new Audio("song_13.mp3");
-var song14 = new Audio("song_14.mp3");
-var song15 = new Audio("song_15.mp3");
-var song16 = new Audio("song_16.mp3");
-var song17 = new Audio("song_17.mp3");
-var song18 = new Audio("song_18.mp3");
-var song19 = new Audio("song_19.mp3");
-var song20 = new Audio("song_20.mp3");
-
-var song21 = new Audio("song_21.mp3");
-var song22 = new Audio("song_22.mp3");
-var song23 = new Audio("song_23.mp3");
-var song24 = new Audio("song_24.mp3");
-var song25 = new Audio("song_25.mp3");
-var song26 = new Audio("song_26.mp3");
-var song27 = new Audio("song_27.mp3");
-var song28 = new Audio("song_28.mp3");
-var song29 = new Audio("song_29.mp3");
-var song30 = new Audio("song_30.mp3");
-
-var song31 = new Audio("song_31.mp3");
-var song32 = new Audio("song_32.mp3");
-var song33 = new Audio("song_33.mp3");
-var song34 = new Audio("song_34.mp3");
-var song35 = new Audio("song_35.mp3");
-var song36 = new Audio("song_36.mp3");
-var song37 = new Audio("song_37.mp3");
-var song38 = new Audio("song_38.mp3");
-var song39 = new Audio("song_39.mp3");
-var song40 = new Audio("song_40.mp3");
-
-var song41 = new Audio("song_41.mp3");
-var song42 = new Audio("song_42.mp3");
-var song43 = new Audio("song_43.mp3");
- */
+var songNameArray = [
+                     songName01,
+                     songName02,
+                     songName03,
+                     songName04,
+                     songName05,
+                     songName06,
+                     songName07,
+                     songName08,
+                     songName09,
+                     songName10,
+                     songName11,
+                     songName12,
+                     songName13,
+                     songName14,
+                     songName15,
+                     songName16,
+                     songName17,
+                     songName18,
+                     songName19,
+                     songName20,
+                     ];
 
 
+for(let i = 0; i < songNameArray.length; i++){
+    
+    songNameArray[i].addEventListener("click", () => {
+        
+        if(CurrentSong !== i){
+            
+            CurrentSong = i;
+            playSong();
+            pausePng();
+            
+        }
+        
+    });
+    
+}
+
+
+
+/*
 songName01.addEventListener("click", () => {
-    song09.pause();
-    song01.play();
-});/* 
-songName02.addEventListener("click", () => {
-    song02.play();
-});
-songName03.addEventListener("click", () => {
-    song03.play();
-});
-songName04.addEventListener("click", () => {
-    song04.play();
-});
-songName05.addEventListener("click", () => {
-    song05.play();
-});
-songName06.addEventListener("click", () => {
-    song06.play();
-});
-songName07.addEventListener("click", () => {
-    song07.play();
-});
-songName08.addEventListener("click", () => {
-    song08.play();
-}); */
-songName09.addEventListener("click", () => {
-    song01.pause();
-    song09.play();
-});/* 
-songName10.addEventListener("click", () => {
-    song10.play();
+    
+    if(CurrentSong !== 0){
+        
+        CurrentSong = 0;
+        playSong();
+        pausePng();
+    }
+    
 });
 
-
-songName11.addEventListener("click", () => {
-    song11.play();
-});
-songName12.addEventListener("click", () => {
-    song12.play();
-});
-songName13.addEventListener("click", () => {
-    song13.play();
-});
-songName14.addEventListener("click", () => {
-    song14.play();
-});
-songName15.addEventListener("click", () => {
-    song15.play();
-});
-songName16.addEventListener("click", () => {
-    song16.play();
-});
-songName17.addEventListener("click", () => {
-    song17.play();
-});
-songName18.addEventListener("click", () => {
-    song18.play();
-});
-songName19.addEventListener("click", () => {
-    song19.play();
-});
-songName20.addEventListener("click", () => {
-    song20.play();
-});
-
-
-songName21.addEventListener("click", () => {
-    song21.play();
-});
-songName22.addEventListener("click", () => {
-    song22.play();
-});
-songName23.addEventListener("click", () => {
-    song23.play();
-});
-songName24.addEventListener("click", () => {
-    song24.play();
-});
-songName25.addEventListener("click", () => {
-    song25.play();
-});
-songName26.addEventListener("click", () => {
-    song26.play();
-});
-songName27.addEventListener("click", () => {
-    song27.play();
-});
-songName28.addEventListener("click", () => {
-    song28.play();
-});
-songName29.addEventListener("click", () => {
-    song29.play();
-});
-songName30.addEventListener("click", () => {
-    song30.play();
-});
-
-
-songName31.addEventListener("click", () => {
-    song31.play();
-});
-songName32.addEventListener("click", () => {
-    song32.play();
-});
-songName33.addEventListener("click", () => {
-    song33.play();
-});
-songName34.addEventListener("click", () => {
-    song34.play();
-});
-songName35.addEventListener("click", () => {
-    song35.play();
-});
-songName36.addEventListener("click", () => {
-    song36.play();
-});
-songName37.addEventListener("click", () => {
-    song37.play();
-});
-songName38.addEventListener("click", () => {
-    song38.play();
-});
-songName39.addEventListener("click", () => {
-    song39.play();
-});
-songName40.addEventListener("click", () => {
-    song40.play();
-});
-
-
-songName41.addEventListener("click", () => {
-    song41.play();
-});
-songName42.addEventListener("click", () => {
-    song42.play();
-});
-songName43.addEventListener("click", () => {
-    song43.play();
-}); */
+*/
