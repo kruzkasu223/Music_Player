@@ -13,8 +13,8 @@ var songs = [
             /* "songs/Calavera.mp3", 
              "songs/Choices.mp3", 
              "songs/Choli Ke Peeche (Remix).mp3", */
-             "songs/Deep Down Inside.mp3", 
-             "songs/Easy Go.mp3"/*, 
+             "songs/Deep Down Inside.mp3"/*, 
+             "songs/Easy Go.mp3", 
              "songs/Eternal Youth.mp3", 
              "songs/Feel Alive.mp3", 
              "songs/Forbidden Voices.mp3", 
