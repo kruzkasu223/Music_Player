@@ -1,30 +1,31 @@
 
 
 var songs = [
-            /* "songs/Aghori.mp3", 
-             "songs/Alone.mp3", 
-             "songs/Alto's Odyssey - Zen Mode Soundtrack.mp3", 
-             "songs/Angst.mp3", */
-             "songs/Animals.mp3", 
-             "songs/Area.mp3", 
-            /* "songs/Awaken.mp3", 
-             "songs/Bella ciao.mp3", */
-             "songs/Boom Shankar.mp3", 
-            /* "songs/Calavera.mp3", 
-             "songs/Choices.mp3", 
-             "songs/Choli Ke Peeche (Remix).mp3", */
-             "songs/Deep Down Inside.mp3"/*, 
-             "songs/Easy Go.mp3", 
-             "songs/Eternal Youth.mp3", 
-             "songs/Feel Alive.mp3", 
-             "songs/Forbidden Voices.mp3", 
-             "songs/Fuel To the Fire.mp3", 
-             "songs/Get Low.mp3", 
-             "songs/Hex.mp3"*/
+             "songs/Blank - Disfigure.mp3", 
+             "songs/Cloud 9 - Itro & Tobu.mp3", 
+             "songs/Cradles - Sub Urban.mp3", 
+             "songs/Fade - Alan Walker.mp3", 
+             "songs/Fearless pt.II - Lost Sky (feat. Chris Linton).mp3", 
+             "songs/Feel Good - Syn Cole.mp3", 
+             "songs/Force - Alan Walker.mp3", 
+             "songs/Heroes Tonight - Janji (feat. Johnning).mp3", 
+             "songs/Hope - Tobu.mp3", 
+             "songs/Invincible - DEAF KEV.mp3", 
+             "songs/Invisible - Julius Dreisig & Zeus X Crona.mp3", 
+             "songs/Mortals - Warriyo (feat. Laura Brehm).mp3", 
+             "songs/My Heart - Different Heaven & EH!DE.mp3", 
+             "songs/On & On - Cartoon (feat. Daniel Levi).mp3", 
+             "songs/Shine - Spektrem.mp3", 
+             "songs/Sky High - Elektronomia.mp3", 
+             "songs/Spectre - Alan Walker.mp3", 
+             "songs/Superhero - Unknown Brain (feat. Chris Linton).mp3", 
+             "songs/Symbolism - Electro-Light.mp3", 
+             "songs/Why We Lose - Cartoon (feat. Coleman Trapp).mp3"
              ];
 
 
 var songName = document.querySelector(".current_song_name");
+var artistName = document.querySelector(".current_artist_name");
 var fillBar = document.querySelector(".fill");
 var seekBar = document.querySelector(".seek_bar");
 
@@ -54,9 +55,12 @@ function playSong(){
     
     song.src = songs[CurrentSong];
     
-    songsTitle = songs[CurrentSong].substring(6, songs[CurrentSong].indexOf('.'));
+    songsTitle = songs[CurrentSong].substring(6, songs[CurrentSong].indexOf(' -'));
+    songsArtist = songs[CurrentSong].substring(songs[CurrentSong].indexOf('- '), songs[CurrentSong].indexOf('.mp3'));
+    songsArtistTrimed = songsArtist.substring(2);
     
     songName.textContent = (songsTitle);
+    artistName.textContent = (songsArtistTrimed);
     
     song.play();
     
@@ -220,7 +224,7 @@ var songNameArray = [
                      songName02,
                      songName03,
                      songName04,
-                    /* songName05,
+                     songName05,
                      songName06,
                      songName07,
                      songName08,
@@ -235,7 +239,7 @@ var songNameArray = [
                      songName17,
                      songName18,
                      songName19,
-                     songName20,*/
+                     songName20,
                      ];
 
 
@@ -257,16 +261,27 @@ for(let i = 0; i < songNameArray.length; i++){
 
 
 
-/*
-songName01.addEventListener("click", () => {
-    
-    if(CurrentSong !== 0){
-        
-        CurrentSong = 0;
-        playSong();
-        pausePng();
-    }
-    
-});
+/* ********
+~~~~~~~~~~
+Modal
+~~~~~~~~~~
+******** */
 
-*/
+
+var modelBtn = document.querySelector("#help_btn");
+var modal = document.querySelector("#help_modal");
+var closeBtn = document.querySelector(".close_btn span");
+
+modelBtn.onclick = function() {
+    modal.style.display = "block";
+};
+
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+};
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};

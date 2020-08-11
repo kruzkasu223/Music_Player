@@ -9,7 +9,7 @@ body {
     font-family: 'Nunito', sans-serif;
     width: 100%;
     height: 100vh;
-    min-height: 500px;
+    min-height: 550px;
     color: white;
     animation: bgChanger 120s infinite;
 }
@@ -56,7 +56,20 @@ header{
     text-align: right;
 }
 
-.home_btn{
+.navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.help_btn{
+    margin-right: 1.5rem;
+    border: none;
+}
+
+.btn{
+    font-size: 1rem;
     text-decoration: none;
     color: #eee;
     padding: .5rem 1rem;
@@ -67,12 +80,67 @@ header{
     text-shadow: 2px 2px 3px rgba(0,0,0,.5);
 }
 
-.home_btn:hover,
-.home_btn:focus{
+.btn:hover,
+.btn:focus{
     box-shadow: inset 3px 3px 2px rgba(0,0,0,.1),
                 inset -3px -3px 2px rgba(255,255,255,.15);
     color: #fff;
     text-shadow: none;
+}
+
+.help_modal{
+    display: none;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(50,50,50,.5);
+    padding: 1rem;
+}
+
+.modal_content{
+    font-size: 1rem;
+    color: white;
+    border-radius: .5rem;
+    background-color: #333;
+    background-color: rgba(50,50,50,.85);
+    text-align: justify;
+    padding: .5rem 1rem;
+}
+
+.close_btn{
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.close_btn span{
+    cursor: pointer;
+}
+
+.close_btn span:hover,
+.close_btn span:focus{
+    color: skyblue;
+}
+
+.modal_content ul{
+    margin: 1rem;
+}
+
+.modal_content ul li{
+    margin: .5rem 0;
+}
+
+.modal_btn{
+    color: inherit;
+}
+
+.modal_btn:hover,
+.modal_btn:focus{
+    color: skyblue;
 }
 
 .main_div{
@@ -88,7 +156,7 @@ header{
     box-shadow: 5px 5px 5px rgba(0,0,0,.2),
                -5px -5px 5px rgba(255,255,255,.2);
     overflow-y: scroll;
-    z-index: 10;
+    
 }
 
 .song_name{
@@ -115,9 +183,6 @@ header{
     bottom: 0;
     left: 0;
     width: 100%;
-    /*height: 25%;*/
-    /*max-height: 200px;*/
-    /*min-height: 150px;*/
     padding: 0 .5rem;
     border-radius: .5rem 0 0 .5rem;
     animation: bgChanger 120s infinite;
@@ -133,6 +198,13 @@ header{
     margin: 1rem 0 0 0;
     font-size: 1.25rem;
     font-weight: 700;
+    text-align: center;
+}
+
+.current_artist_name{
+    margin: .25rem 0 0 0;
+    font-size: .85rem;
+    font-weight: normal;
     text-align: center;
 }
 
@@ -180,7 +252,6 @@ header{
     width: 45px;
     height: 45px;
     padding: .5rem;
-    
 }
 
 .seek_bar{
@@ -191,7 +262,7 @@ header{
     animation: bgChanger 120s infinite;
     filter: brightness(110%);
     display: flex;
-    /*cursor: pointer;*/
+    cursor: pointer;
 }
 
 .fill{
